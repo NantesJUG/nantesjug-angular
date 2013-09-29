@@ -1,10 +1,10 @@
 'use strict';
 
 describe('Controller: MainCtrl', function () {
-//
-//  // load the controller's module
+
+  // load the controller's module
 //  beforeEach(module('nantesjugApp'));
-//
+
 //  var MainCtrl,
 //    scope;
 //
@@ -17,6 +17,6 @@ describe('Controller: MainCtrl', function () {
 //  }));
 //
 //  it('should attach a list of awesomeThings to the scope', function () {
-//    expect(scope.awesomeThings.length).toBe(3);
+//    expect(scope.event.length).toBe(1);
 //  });
 });
