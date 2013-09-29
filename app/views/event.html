@@ -1,0 +1,42 @@
+<div class='panel panel-default'>
+  <div class='panel-heading'>
+    <div ng-click='toggleDetail(event.id)'>
+      {{event.date | date:'longDate'}} - {{event.title}}
+    </div>
+  </div>
+
+  <div class='panel-body'>
+
+    <div class='event-detail' ng-show='eventDetailledView[event.id]'>
+      {{event.time}} <br/>
+      {{event.register}} <br/>
+      {{event.place.name}} <br/>
+      {{event.place.address}} <br/>
+      {{event.place.maps}} <br/>
+    </div>
+
+    <div ng-repeat='subject in event.subjects'>
+        <span class='jug-event-subject'>
+          {{subject.title}}
+          <span class='label label-info'>{{subject.type}}</span>
+        </span>
+      <div class='event-detail' ng-show='eventDetailledView[event.id]'>
+        {{subject.abstract}}<br/>
+        {{subject.length}}<br/>
+      </div>
+
+      <ul>
+        <li ng-repeat='speaker in subject.speakers'>
+          {{speaker.name}}<br/>
+          <div class='event-detail' ng-show='event.viewDetail'>
+            {{speaker.bio}}<br/>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <span class="badge" ng-hide='eventDetailledView[event.id]' ng-click='toggleDetail(event.id)'>plus</span>
+    <span class="badge" ng-show='eventDetailledView[event.id]' ng-click='toggleDetail(event.id)'>moins</span>
+
+  </div>
+</div>

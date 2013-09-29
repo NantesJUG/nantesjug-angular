@@ -32,9 +32,52 @@
 <!-- Add your site or application content here -->
 <div class="container">
 
+  <div class="row">
+    <div class="jug-leftbar col-md-2">
 
+      <a href="/#/">
+        <img src="/images/logo-nantesjug.gif"
+             class="img-responsive"/>
+      </a>
 
+      <h3 class="text-muted">Nantes JUG</h3>
+      <ul class="jug-menu nav ">
+        <li class="active"><a href="/#/">Home</a></li>
+        <li><a href="/#/events">Soirées</a></li>
+        <li><a href="/#/speakers">Speakers</a></li>
+        <li><a href="/#/infos">Infos</a></li>
+      </ul>
+      <div class="jug-promo">
+        <h3>Devoxx.Be</h3>
+        <p>Du 11 au 15 novembre 2013</p>
+        <a href="https://regbe.devoxx.com" target="_blank" rel="nofollow">
+          <img alt="Inscription : https://regbe.devoxx.com"
+               src="https://sites.google.com/site/nantesjug/_/rsrc/1379888473706/config/devoxx_banner.gif"
+               class="img-responsive" />
+          <p><i>&gt;&gt; S'inscrire</i></p>
+        </a>
+      </div>
 
+      <div class="jug-sponsors">
+        <h3>Sponsors</h3>
+        <a href="http://zenika.com/" target="_blank" rel="nofollow">
+          <img src="/images/logo-zenika.jpg"
+               class="img-responsive"/>
+        </a>
+        <a href="http://couchbase.com" target="_blank" rel="nofollow">
+          <img src="/images/logo-couchbase.png"
+               class="img-responsive"/>
+        </a>
+        <a href="http://netapsys.fr" target="_blank" rel="nofollow">
+          <img src="/images/logo-netapsys.jpg"
+               class="img-responsive"/>
+        </a>
+      </div>
+    </div>
+
+    <div class="jug-page col-md-10" ng-view=""></div>
+  </div>
+</div>
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
 <script>

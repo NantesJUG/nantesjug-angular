@@ -1,0 +1,16 @@
+<div class='panel panel-default' ng-repeat="speaker in speakers">
+  <div class='panel-heading'>
+    {{speaker.name}}
+  </div>
+  <div class='panel-body'>
+    <div class="row">
+      <div class="col-md-2">
+        <img ng-show="speaker.gravatar" gravatar-src="speaker.gravatar" gravatar-size="100">
+        <img ng-hide="speaker.gravatar" src="/images/gravatar-duke.jpg" class="img-responsive">
+      </div>
+      <div class="col-md-10">
+        {{speaker.bio}}
+      </div>
+    </div>
+  </div>
+</div>
