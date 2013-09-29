@@ -5,7 +5,7 @@ angular.module('nantesjugApp', ['ui.gravatar'])
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
-        controller: 'NextEventCtrl'
+        controller: 'MainCtrl'
       })
       .when('/events', {
         templateUrl: 'views/events.html',

@@ -104,7 +104,7 @@ function getEvent(eventId) {
 }
 
 angular.module('nantesjugApp')
-    .controller('NextEventCtrl', function ($scope) {
+    .controller('MainCtrl', function ($scope) {
       var event = getEvent(1);
       $scope.event = event;
 
