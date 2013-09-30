@@ -19,6 +19,10 @@ angular.module('nantesjugApp', ['ui.gravatar'])
         templateUrl: 'views/speakers.html',
         controller: 'SpeakersCtrl'
       })
+      .when('/speakers/:speakerId', {
+        templateUrl: 'views/speaker.html',
+        controller: 'SpeakerCtrl'
+      })
       .when('/infos', {
         templateUrl: 'views/infos.html'
       })

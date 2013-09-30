@@ -1,39 +1,60 @@
 <div class='panel panel-default'>
   <div class='panel-heading'>
     <div ng-click='toggleDetail(event.id)'>
-      {{event.date | date:'longDate'}} - {{event.title}}
+      Le {{event.date | date:'longDate'}} à {{event.time}}h - {{event.title}}
     </div>
   </div>
 
   <div class='panel-body'>
 
-    <div class='event-detail' ng-show='eventDetailledView[event.id]'>
-      {{event.time}} <br/>
-      {{event.register}} <br/>
-      {{event.place.name}} <br/>
-      {{event.place.address}} <br/>
-      {{event.place.maps}} <br/>
+    <div class="jug-event-infos" ng-show='eventDetailledView[event.id]'>
+      <p>
+        <div class="jug-event-registration">
+          <a href="{{event.register}}" target="_blank">
+            <img src="/images/register.jpg" alt="Inscriptions" />
+            <span>S'inscrire</span>
+          </a>
+        </div>
+      </p>
+
+      <p>
+        <div class="jug-event-location">
+          <a href="{{event.place.maps}}" target="_blank">
+            <img src="/images/location.jpg" alt="Lieu" />
+            <span>{{event.place.name}} - {{event.place.address}}</span>
+          </a>
+        </div>
+      </p>
     </div>
 
-    <div ng-repeat='subject in event.subjects'>
-        <span class='jug-event-subject'>
-          {{subject.title}}
+    <ul class="jug-event-subjects">
+      <li ng-repeat='subject in event.subjects'>
+        <div class="jug-event-subject">
           <span class='label label-info'>{{subject.type}}</span>
-        </span>
-      <div class='event-detail' ng-show='eventDetailledView[event.id]'>
-        {{subject.abstract}}<br/>
-        {{subject.length}}<br/>
-      </div>
+          <span class="jug-event-subject-title">{{subject.title}}</span>
+          {{subject.intro}}
+        </div>
 
-      <ul>
-        <li ng-repeat='speaker in subject.speakers'>
-          {{speaker.name}}<br/>
-          <div class='event-detail' ng-show='event.viewDetail'>
-            {{speaker.bio}}<br/>
-          </div>
-        </li>
-      </ul>
-    </div>
+
+
+        <ANY ng-show='eventDetailledView[event.id]'>
+          <p ng-repeat='abstractParagraph in subject.abstract'>
+            {{abstractParagraph}}
+          </p>
+        </ANY>
+
+        <p><em>Durée : {{subject.length}}</em></p>
+
+        <p>
+          <em>
+            Speakers :
+            <span class="jug-event-speaker" ng-repeat='speaker in subject.speakers'>
+              <a href="/#/speakers/{{speaker.id}}">{{speaker.name}}</a>
+            </span>
+          </em>
+        </p>
+      </li>
+    </ul>
 
     <span class="badge" ng-hide='eventDetailledView[event.id]' ng-click='toggleDetail(event.id)'>plus</span>
     <span class="badge" ng-show='eventDetailledView[event.id]' ng-click='toggleDetail(event.id)'>moins</span>
