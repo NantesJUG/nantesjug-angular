@@ -1,31 +1,31 @@
 'use strict';
 
 //Define NantesJug Module
-var nj = function () {
+var njFunction = function () {
   var events = njEvents;
   var speakers = njSpeakers;
 
   var that = {
-    getToday: function(){
-      var d = new Date()
+    getToday: function () {
+      var d = new Date();
       d.setHours(0);
       d.setMinutes(0);
       d.setSeconds(0);
       return d;
     },
-    getEvents: function(){
+    getEvents: function () {
       return events;
     },
-    getNextEvent: function(){
+    getNextEvent: function () {
       var nextEvents = that.getNextEvents();
-      if (nextEvents.length == 0){
+      if (nextEvents.length === 0) {
         return null;
       } else {
         return nextEvents[0];
       }
       return nextEvents;
     },
-    getNextEvents: function(){
+    getNextEvents: function () {
       var nextEvents = [];
       var today = that.getToday();
       for (var i = 0; i < events.length; i++) {
@@ -35,7 +35,7 @@ var nj = function () {
       }
       return nextEvents;
     },
-    getPreviousEvents: function(){
+    getPreviousEvents: function () {
       var nextEvents = [];
       var today = that.getToday();
       for (var i = 0; i < events.length; i++) {
@@ -53,7 +53,7 @@ var nj = function () {
       }
       return null;
     },
-    getSpeakers: function(){
+    getSpeakers: function () {
       return speakers;
     },
     getSpeaker: function (speakerId) {
@@ -68,8 +68,8 @@ var nj = function () {
     }
   };
   return that;
-}();
-
+};
+var nj = njFunction();
 
 angular.module('nantesjugApp')
     .controller('MenuCtrl', function ($scope, $location) {
@@ -82,7 +82,7 @@ angular.module('nantesjugApp')
       $scope.today = nj.getToday();
 
       var eventDetailledView = {};
-      if ($scope.event !== null){
+      if ($scope.event !== null) {
         eventDetailledView[$scope.event.id] = true;
       }
       $scope.eventDetailledView = eventDetailledView;
