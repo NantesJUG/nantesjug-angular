@@ -5,9 +5,45 @@ var nj = function () {
   var events = njEvents;
   var speakers = njSpeakers;
 
-  return {
+  var that = {
+    getToday: function(){
+      var d = new Date()
+      d.setHours(0);
+      d.setMinutes(0);
+      d.setSeconds(0);
+      return d;
+    },
     getEvents: function(){
       return events;
+    },
+    getNextEvent: function(){
+      var nextEvents = that.getNextEvents();
+      if (nextEvents.length == 0){
+        return null;
+      } else {
+        return nextEvents[0];
+      }
+      return nextEvents;
+    },
+    getNextEvents: function(){
+      var nextEvents = [];
+      var today = that.getToday();
+      for (var i = 0; i < events.length; i++) {
+        if (events[i].date > today) {
+          nextEvents.push(events[i]);
+        }
+      }
+      return nextEvents;
+    },
+    getPreviousEvents: function(){
+      var nextEvents = [];
+      var today = that.getToday();
+      for (var i = 0; i < events.length; i++) {
+        if (events[i].date <= today) {
+          nextEvents.push(events[i]);
+        }
+      }
+      return nextEvents;
     },
     getEvent: function (eventId) {
       for (var i = 0; i < events.length; i++) {
@@ -30,7 +66,8 @@ var nj = function () {
       }
       return null;
     }
-  }
+  };
+  return that;
 }();
 
 
@@ -41,27 +78,31 @@ angular.module('nantesjugApp')
       };
     })
     .controller('MainCtrl', function ($scope) {
-      var event = nj.getEvent(1);
-      $scope.event = event;
+      $scope.event = nj.getNextEvent();
+      $scope.today = nj.getToday();
 
       var eventDetailledView = {};
-      eventDetailledView[event.id] = true;
+      if ($scope.event !== null){
+        eventDetailledView[$scope.event.id] = true;
+      }
       $scope.eventDetailledView = eventDetailledView;
-
-      $scope.toggleDetail = function (evendId) {
-        $scope.eventDetailledView[evendId] = !$scope.eventDetailledView[evendId];
-      };
-
+      $scope.eventToggleViewDisabled = true;
     })
     .controller('EventsCtrl', function ($scope) {
-      $scope.events = nj.getEvents();
+      $scope.today = nj.getToday();
+      $scope.nextEvents = nj.getNextEvents();
+      $scope.previousEvents = nj.getPreviousEvents();
 
       //Events detailled view
       var eventDetailledView = {};
-      events.forEach(function (event) {
+      $scope.nextEvents.forEach(function (event) {
+        eventDetailledView[event.id] = false;
+      });
+      $scope.previousEvents.forEach(function (event) {
         eventDetailledView[event.id] = false;
       });
       $scope.eventDetailledView = eventDetailledView;
+      $scope.eventToggleViewDisabled = false;
 
       $scope.toggleDetail = function (evendId) {
         $scope.eventDetailledView[evendId] = !$scope.eventDetailledView[evendId];
@@ -69,12 +110,13 @@ angular.module('nantesjugApp')
     })
     .controller('EventCtrl', function ($scope, $routeParams) {
       var eventId = parseInt($routeParams.eventId, 10);
-      var event = nj.getEvent(eventId);
-      $scope.event = event;
+      $scope.event = nj.getEvent(eventId);
+      $scope.today = nj.getToday();
 
       var eventDetailledView = {};
-      eventDetailledView[event.id] = true;
+      eventDetailledView[$scope.event.id] = true;
       $scope.eventDetailledView = eventDetailledView;
+      $scope.eventToggleViewDisabled = false;
 
       $scope.toggleDetail = function (evendId) {
         $scope.eventDetailledView[evendId] = !$scope.eventDetailledView[evendId];

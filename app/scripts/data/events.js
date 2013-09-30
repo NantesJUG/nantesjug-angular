@@ -33,7 +33,7 @@ var njEvents = [
   {
     id: 2,
     title: 'Event 2',
-    date: new Date(2013, 11, 5),
+    date: new Date(2013, 08, 5),
     time: '19',
     register: '',
     place: njPlaces.cantine,
