@@ -1,3 +1,4 @@
+/*jshint unused: false */
 var njPlaces = {
   epsi: {
     name: 'EPSI Nantes',

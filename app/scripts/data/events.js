@@ -1,3 +1,4 @@
+/*jshint unused: false */
 var njEvents = [
   //event 1
   {

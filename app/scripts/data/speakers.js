@@ -1,5 +1,4 @@
-
-// Load from yml with https://github.com/jeremyfa/yaml.js
+/*jshint unused: false */
 var njSpeakers = {
   sebastienPrunier: {
     id: 'sebastien_prunier',
