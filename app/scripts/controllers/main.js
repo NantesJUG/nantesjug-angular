@@ -144,6 +144,11 @@ function getSpeaker(speakerId) {
 }
 
 angular.module('nantesjugApp')
+    .controller('MenuCtrl', function ($scope, $location) {
+      $scope.isActive = function (viewLocation) {
+        return viewLocation === $location.path();
+      };
+    })
     .controller('MainCtrl', function ($scope) {
       var event = getEvent(1);
       $scope.event = event;

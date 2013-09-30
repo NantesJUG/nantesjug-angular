@@ -36,11 +36,11 @@
     <!-- Menu for device XS -->
     <div class="jug-leftbar-xs col-xs-12 hidden-sm hidden-md hidden-lg">
       <div class="navbar navbar-default navbar-fixed-top text-center" role="navigation">
-        <ul class="jug-menu nav nav-pills">
-          <li class="active"><a href="/#/">Accueil</a></li>
-          <li><a href="/#/events">Soirées</a></li>
-          <li><a href="/#/speakers">Speakers</a></li>
-          <li><a href="/#/infos">Infos</a></li>
+        <ul class="jug-menu nav nav-pills" ng-controller="MenuCtrl">
+          <li ng-class="{ active: isActive('/')}"><a href="/#/">Accueil</a></li>
+          <li ng-class="{ active: isActive('/events')}"><a href="/#/events">Soirées</a></li>
+          <li ng-class="{ active: isActive('/speakers')}"><a href="/#/speakers">Speakers</a></li>
+          <li ng-class="{ active: isActive('/infos')}"><a href="/#/infos">Infos</a></li>
         </ul>
       </div>
     </div>
@@ -55,11 +55,11 @@
       </a>
 
       <h3 class="text-muted">Nantes JUG</h3>
-      <ul class="jug-menu nav">
-        <li class="active"><a href="/#/">Accueil</a></li>
-        <li><a href="/#/events">Soirées</a></li>
-        <li><a href="/#/speakers">Speakers</a></li>
-        <li><a href="/#/infos">Infos</a></li>
+      <ul class="jug-menu nav nav-pills nav-stacked" ng-controller="MenuCtrl">
+        <li ng-class="{ active: isActive('/')}"><a href="/#/">Accueil</a></li>
+        <li ng-class="{ active: isActive('/events')}"><a href="/#/events">Soirées</a></li>
+        <li ng-class="{ active: isActive('/speakers')}"><a href="/#/speakers">Speakers</a></li>
+        <li ng-class="{ active: isActive('/infos')}"><a href="/#/infos">Infos</a></li>
       </ul>
       <div class="jug-promo">
         <h3>Devoxx.Be</h3>
