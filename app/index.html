@@ -32,7 +32,21 @@
 <div class="jug-page container">
 
   <div class="row">
-    <div class="jug-leftbar col-md-2">
+
+    <!-- Menu for device XS -->
+    <div class="jug-leftbar-xs col-xs-12 hidden-sm hidden-md hidden-lg">
+      <div class="navbar navbar-default navbar-fixed-top text-center" role="navigation">
+        <ul class="jug-menu nav nav-pills">
+          <li class="active"><a href="/#/">Accueil</a></li>
+          <li><a href="/#/events">Soirées</a></li>
+          <li><a href="/#/speakers">Speakers</a></li>
+          <li><a href="/#/infos">Infos</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Sidebar for device SM, MD -->
+    <div class="jug-leftbar hidden-xs col-sm-2 col-md-2 col-lg-2">
 
       <a href="/#/">
         <img src="images/logo-nantesjug.gif"
@@ -41,7 +55,7 @@
       </a>
 
       <h3 class="text-muted">Nantes JUG</h3>
-      <ul class="jug-menu nav ">
+      <ul class="jug-menu nav">
         <li class="active"><a href="/#/">Accueil</a></li>
         <li><a href="/#/events">Soirées</a></li>
         <li><a href="/#/speakers">Speakers</a></li>
@@ -78,10 +92,45 @@
       </div>
     </div>
 
-    <div class="jug-page col-md-10" ng-view=""></div>
+    <!-- Content page -->
+    <div class="jug-page col-xs-12 col-sm-10 col-md-10 col-lg-10" ng-view=""></div>
 
+
+    <!-- Promo and sponsors for device XS -->
+    <div class="jug-leftbar-xs col-xs-12 hidden-sm hidden-md hidden-lg text-center">
+      <div class="jug-promo">
+        <h3>Devoxx.Be</h3>
+        <p><em>Du 11 au 15 nov. 2013</em></p>
+        <a href="https://regbe.devoxx.com" target="_blank" rel="nofollow">
+          <img alt="Inscription : https://regbe.devoxx.com"
+               src="https://sites.google.com/site/nantesjug/_/rsrc/1379888473706/config/devoxx_banner.gif"
+               class="img-responsive" />
+          <p><i>&gt;&gt; S'inscrire</i></p>
+        </a>
+      </div>
+
+      <div class="jug-sponsors">
+        <h3>Sponsors</h3>
+        <a href="http://zenika.com/" target="_blank" rel="nofollow">
+          <img src="/images/logo-zenika.jpg"
+               alt="Zenika"
+               class="img-responsive"/>
+        </a>
+        <a href="http://couchbase.com" target="_blank" rel="nofollow">
+          <img src="/images/logo-couchbase.png"
+               alt="Couchbase"
+               class="img-responsive"/>
+        </a>
+        <a href="http://netapsys.fr" target="_blank" rel="nofollow">
+          <img src="/images/logo-netapsys.jpg"
+               alt="Netapsys"
+               class="img-responsive"/>
+        </a>
+      </div>
+    </div>
   </div>
 
+  <!-- Footer -->
   <div class="jug-footer text-center">
     <em>Pour être informé des prochaines soirées du Nantes JUG, inscrivez-vous à la <a href="http://groups.google.com/group/nantesjug" target="_blank">mailing list</a>.</em>
   </div>
