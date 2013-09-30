@@ -68,7 +68,6 @@ a:link {text-decoration:none;}
     padding-right: 10px;
   }
 }
-
 .jug-promo img {
   margin-bottom: 10px;
 }
@@ -114,3 +113,10 @@ a:link {text-decoration:none;}
 .jug-speakers img {
   height: 150px;
 }
+@media (max-width: 767px) {
+  .jug-speakers-item{
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+}
+
