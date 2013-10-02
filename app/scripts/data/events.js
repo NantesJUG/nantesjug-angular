@@ -3,7 +3,7 @@ var njEvents = [
   {
     id: 1,
     title: 'Cloud Pattern',
-    date: new Date(2013, 09, 10),//month begin at 0
+    date: new Date(2013, 9, 10),//month begin at 0
     time: '19',
     register: 'https://guestlistapp.com/events/190722',
     place: 'epsi',
