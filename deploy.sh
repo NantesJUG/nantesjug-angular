@@ -34,5 +34,5 @@ popd 1>/dev/null
 
 echo "--"
 echo "OK"
-echo "--
+echo "--"
 
