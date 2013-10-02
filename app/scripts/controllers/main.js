@@ -122,6 +122,7 @@ angular.module('nantesjugApp')
     })
     .controller('SpeakersCtrl', function ($scope) {
       $scope.speakers = nj.getSpeakers();
+      $scope.searchText = '';
     })
     .controller('SpeakerCtrl', function ($scope, $routeParams) {
       var speaker = nj.getSpeaker($routeParams.speakerId);
